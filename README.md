@@ -1,0 +1,1 @@
+# NaKeR's Bedrock Camera Lib is a library for Minecraft Java (Fabric), which replicates Minecraft Bedrock's Script API Camera APIs
