@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "nakern.be_camera.mixin.client",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "CameraMixin",
+    "HudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}
