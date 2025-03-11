@@ -12,7 +12,6 @@ import org.lwjgl.glfw.GLFW
 
 object BedrockCameraLibClient : ClientModInitializer {
 	override fun onInitializeClient() {
-//		FadeDrawer.initialize();
 //		val keybind = KeyBinding(
 //			"becamera.init",
 //			GLFW.GLFW_KEY_J,
@@ -21,7 +20,7 @@ object BedrockCameraLibClient : ClientModInitializer {
 //
 //		ClientTickEvents.END_CLIENT_TICK.register {
 //			if (keybind.wasPressed()) {
-//				if (CameraManager.isActive()) {
+//				if (CameraManager.isCameraChanged()) {
 //					CameraManager.clear();
 //				} else {
 //					CameraManager.setCamera(
@@ -36,7 +35,7 @@ object BedrockCameraLibClient : ClientModInitializer {
 //					)
 //
 //					ClientTimer(60) {
-//						CameraManager.setFade(
+//						CameraManager.fade(
 //							CameraFadeOptions(
 //                                fadeColor = Colors.WHITE,
 //                                fadeInTime = 1000,
@@ -60,8 +59,8 @@ object BedrockCameraLibClient : ClientModInitializer {
 //					}.start()
 //				}
 //			}
-
-//			println(Clock.System.now().toEpochMilliseconds())
+//
+////			println(Clock.System.now().toEpochMilliseconds())
 //		}
 	}
 }

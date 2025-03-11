@@ -2,12 +2,14 @@ package nakern.be_camera.camera
 
 import kotlinx.datetime.Clock
 import net.minecraft.client.MinecraftClient
-import net.minecraft.client.render.GameRenderer
 import net.minecraft.util.math.Vec2f
 import net.minecraft.util.math.Vec3d
 import org.joml.Vector2d
 import kotlin.math.*
 
+/**
+ * Used to set the camera state and fade the camera. See [CameraManager.setCamera] and [CameraManager.fade]
+ * */
 object CameraManager {
     private var active = false;
     private var cameraData: CameraData? = null;
@@ -20,32 +22,32 @@ object CameraManager {
     private var lastMsFade = Clock.System.now().toEpochMilliseconds();
     private var fadeData: CameraFadeOptions? = null;
 
-//
-//    companion object {
-//        private var manager: CameraManager? = null;
-//
-//        fun instance(): CameraManager {
-//            if (CameraManager.manager == null) {
-//                CameraManager.manager = CameraManager();
-//            }
-//            return CameraManager.manager!!;
-//        }
-//    }
-
+    /**
+     * Clears the current camera state. Does not affect fades.
+     * */
     fun clear() {
         active = false;
         cameraData = null;
         oldData = null;
     }
 
-    fun isActive(): Boolean {
+    /**
+     * Tells whether camera was set to a different state or not.
+     */
+    fun isCameraChanged(): Boolean {
         return active;
     }
 
+    /**
+     * Returns [CameraData] set to the camera or null if it isn't set.
+     */
     fun maybeData(): CameraData? {
         return cameraData;
     }
 
+    /**
+     * Gets current rotation of the camera. This accounts for easing.
+     */
     fun getRotation(): Vector2d {
         if (cameraData != null) {
             if (cameraData!!.targetLocation != null) {
@@ -120,7 +122,9 @@ object CameraManager {
             return Vector2d(0.0, 0.0)
         }
     }
-
+    /**
+     * Gets current position/location of the camera. This accounts for easing.
+     */
     fun getPosition(): Vec3d {
         if (cameraData != null) {
             val delta = Clock.System.now().toEpochMilliseconds() - lastMs;
@@ -152,6 +156,9 @@ object CameraManager {
         }
     }
 
+    /**
+     * Sets a [CameraData] as a new camera state of the client.
+     */
     fun setCamera(data: CameraData) {
         oldData = cameraData;
         cameraData = data;
@@ -181,12 +188,18 @@ object CameraManager {
         return Vector2d(pitch, yaw);
     }
 
+    /**
+     * Tells whether player should be rendered. Is calculated using the distance of camera to player's head
+     */
     fun shouldRenderPlayer(): Boolean {
         val playerPos = client.player!!.eyePos;
 
         return playerPos.distanceTo(location) > 0.45
     }
 
+    /**
+     * Returns info regarding the fade. It's color and it's current alpha.
+     */
     fun getFadeInfo(): Pair<Int, Float> {
         if (fadeData == null) {
             return Pair(0, 0f)
@@ -219,8 +232,11 @@ object CameraManager {
         return Pair(0, 0f)
     }
 
-    fun setFade(fade: CameraFadeOptions) {
-        fadeData = fade;
+    /**
+     * Fades the camera using [CameraFadeOptions]
+     */
+    fun fade(fadeData: CameraFadeOptions) {
+        this.fadeData = fadeData;
         lastMsFade = Clock.System.now().toEpochMilliseconds();
     }
 }

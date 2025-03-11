@@ -31,7 +31,7 @@ public class CameraMixin {
 
     @Inject(at = @At("HEAD"), method = "getPos", cancellable = true)
     void getPosition(CallbackInfoReturnable<Vec3d> cir) {
-        if (CameraManager.INSTANCE.isActive()) {
+        if (CameraManager.INSTANCE.isCameraChanged()) {
             cir.setReturnValue(
                     Objects.requireNonNull(CameraManager.INSTANCE.getPosition()));
         }
@@ -39,7 +39,7 @@ public class CameraMixin {
 
     @Inject(at = @At("HEAD"), method = "setRotation", cancellable = true)
     void setRotation(float yw, float pc, CallbackInfo ci) {
-        if (CameraManager.INSTANCE.isActive()) {
+        if (CameraManager.INSTANCE.isCameraChanged()) {
             final var rot = CameraManager.INSTANCE.getRotation();
             var yaw = ((float) rot.y);
             var pitch = ((float) rot.x);
@@ -55,7 +55,7 @@ public class CameraMixin {
 
     @Inject(at = @At("HEAD"), method = "isThirdPerson", cancellable = true)
     void isThirdPerson(CallbackInfoReturnable<Boolean> cir) {
-        if (CameraManager.INSTANCE.isActive()) {
+        if (CameraManager.INSTANCE.isCameraChanged()) {
             cir.setReturnValue(CameraManager.INSTANCE.shouldRenderPlayer());
         }
     }

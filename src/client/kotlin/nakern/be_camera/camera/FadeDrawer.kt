@@ -13,11 +13,11 @@ import net.minecraft.client.render.VertexFormats
 import net.minecraft.util.math.ColorHelper
 
 object FadeDrawer {
-    fun initialize() {
-        HudRenderCallback.EVENT.register {
-            ctx, _ -> draw(ctx)
-        }
-    }
+//    fun initialize() {
+//        HudRenderCallback.EVENT.register {
+//            ctx, _ -> draw(ctx)
+//        }
+//    }
 
     fun draw(context: DrawContext) {
         val baseColor = CameraManager.getFadeInfo().first;
