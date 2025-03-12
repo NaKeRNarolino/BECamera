@@ -30,7 +30,7 @@ public class CameraMixin {
     @Shadow @Final private Quaternionf rotation;
 
     @Inject(at = @At("HEAD"), method = "getPos", cancellable = true)
-    void getPosition(CallbackInfoReturnable<Vec3d> cir) {
+    void beCamera$getPosition(CallbackInfoReturnable<Vec3d> cir) {
         if (CameraManager.INSTANCE.isCameraChanged()) {
             cir.setReturnValue(
                     Objects.requireNonNull(CameraManager.INSTANCE.getPosition()));
@@ -38,7 +38,7 @@ public class CameraMixin {
     }
 
     @Inject(at = @At("HEAD"), method = "setRotation", cancellable = true)
-    void setRotation(float yw, float pc, CallbackInfo ci) {
+    void beCamera$setRotation(float yw, float pc, CallbackInfo ci) {
         if (CameraManager.INSTANCE.isCameraChanged()) {
             final var rot = CameraManager.INSTANCE.getRotation();
             var yaw = ((float) rot.y);
@@ -54,7 +54,7 @@ public class CameraMixin {
     }
 
     @Inject(at = @At("HEAD"), method = "isThirdPerson", cancellable = true)
-    void isThirdPerson(CallbackInfoReturnable<Boolean> cir) {
+    void beCamera$isThirdPerson(CallbackInfoReturnable<Boolean> cir) {
         if (CameraManager.INSTANCE.isCameraChanged()) {
             cir.setReturnValue(CameraManager.INSTANCE.shouldRenderPlayer());
         }

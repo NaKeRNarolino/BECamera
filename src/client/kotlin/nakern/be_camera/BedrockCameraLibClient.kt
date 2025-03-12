@@ -17,7 +17,7 @@ object BedrockCameraLibClient : ClientModInitializer {
 //			GLFW.GLFW_KEY_J,
 //			"becamera"
 //		)
-//
+////
 //		ClientTickEvents.END_CLIENT_TICK.register {
 //			if (keybind.wasPressed()) {
 //				if (CameraManager.isCameraChanged()) {
@@ -37,11 +37,11 @@ object BedrockCameraLibClient : ClientModInitializer {
 //					ClientTimer(60) {
 //						CameraManager.fade(
 //							CameraFadeOptions(
-//                                fadeColor = Colors.WHITE,
-//                                fadeInTime = 1000,
-//                                holdTime = 1000,
-//                                fadeOutTime = 1000
-//                            )
+//                             fadeColor = Colors.WHITE,
+//                             fadeInTime = 1000,
+//                             holdTime = 1000,
+//                             fadeOutTime = 1000
+//                          )
 //						)
 //					}.start()
 //
@@ -59,8 +59,8 @@ object BedrockCameraLibClient : ClientModInitializer {
 //					}.start()
 //				}
 //			}
-//
-////			println(Clock.System.now().toEpochMilliseconds())
+
+//			println(Clock.System.now().toEpochMilliseconds())
 //		}
 	}
 }

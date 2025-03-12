@@ -83,23 +83,6 @@ object CameraManager {
                     } else {
                         Vector2d(lastPlayerRotation!!.x.toDouble(), lastPlayerRotation!!.y.toDouble())
                     }
-//                    val oldPitch = if (oldData?.lookAt != null) {
-//                        calcRotation(
-//                            oldData!!.position,
-//                            oldData!!.lookAt!!
-//                        ).x
-//                    } else {
-//                        lastPlayerRotation!!.x.toDouble()
-//                    }
-
-//                    val deltaYaw = yaw - oldYaw
-//                    val fYaw = oldYaw + deltaYaw * res
-//                    val deltaPitch = pitch - oldPitch;
-//                    val fPitch = pitch + deltaPitch * res;
-//
-//                    println("oldYaw: $oldYaw, oldPitch: $oldPitch")
-//                    println("newYaw: $yaw, newPitch: $pitch")
-//                    println("res: $res")
 
                     val newRot = Vector2d(pitch, yaw);
                     var rotDelta = newRot.sub(oldRot);
@@ -111,7 +94,6 @@ object CameraManager {
 
                     return fRot;
                 }
-                println("newYaw: $yaw, newPitch: $pitch")
 
 //                MinecraftClient.getInstance().player!!.sendMessage(Text.literal("$pitch $yaw"), false)
                 return Vector2d(pitch, yaw);

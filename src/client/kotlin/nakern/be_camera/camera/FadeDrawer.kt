@@ -28,7 +28,7 @@ object FadeDrawer {
         }
 
         val color = ColorHelper.Argb.getArgb(
-            (alpha * 255).toInt(),
+            (alpha * ColorHelper.Argb.getAlpha(baseColor)).toInt(),
             ColorHelper.Argb.getRed(baseColor),
             ColorHelper.Argb.getBlue(baseColor),
             ColorHelper.Argb.getGreen(baseColor),
@@ -43,7 +43,6 @@ object FadeDrawer {
             color
         )
 
-        println("Try draw fade")
         RenderSystem.disableBlend();
     }
 
