@@ -15,7 +15,7 @@ maven { url 'https://jitpack.io' }
 ```
 And add Bedrock Camera Lib to your dependencies:
 ```groovy
-modImplementation 'com.github.NaKeRNarolino:BECamera:<LIB_VERSION>-<MINECRAFT_VERSION>'
+modImplementation 'com.github.NaKeRNarolino:BECamera:<LIB_VERSION>-<MINECRAFT_VERSION>r'
 ```
 
 Examples in both languages(Java and Kotlin).
