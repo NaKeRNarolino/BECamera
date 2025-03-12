@@ -1,11 +1,24 @@
 # NaKeR's Bedrock Camera Lib is a library for Minecraft Java (Fabric), which replicates Minecraft Bedrock's Script API Camera APIs
+
+## This mod is a *library*. It does not add/do anything on it's own.
+
 This library adds similar camera APIs to the ones in bedrock!
 Currently, supports `setCamera` and `fade`.
 
 This library was written in Kotlin, so FLK is a dependency.
 The library contains a bunch of easings for you to make transitions!
 
-Examples
+## Installation (for developers)
+Add JitPack to your repositories:
+```groovy
+maven { url 'https://jitpack.io' }
+```
+And add Bedrock Camera Lib to your dependencies:
+```groovy
+modImplementation 'com.github.NaKeRNarolino:BECamera:<LIB_VERSION>-<MINECRAFT_VERSION>'
+```
+
+Examples in both languages(Java and Kotlin).
 
 Java
 ```java
